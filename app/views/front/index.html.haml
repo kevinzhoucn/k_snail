@@ -10,14 +10,16 @@
 			/ 		= chat_message.tsg.department
 
 			- @tsgs.each do |tsg|
-				%ul
-					- tsg.message_records.each do |chat_message|
-						%li.item#report
-							= chat_message.created_at.strftime('%-d/%-m/%Y %k:%M:%S')
-							= ':'
-							= chat_message.title
-							= ':'
-							= chat_message.tsg.department
+				%li.tsg
+					= tsg.name
+					%ul
+						- tsg.message_records.each do |chat_message|
+							%li.item#report
+								= chat_message.created_at.strftime('%-d/%-m/%Y %k:%M:%S')
+								= ':'
+								= chat_message.title
+								= ':'
+								= chat_message.tsg.department
 	%hr
 
 	.opt
