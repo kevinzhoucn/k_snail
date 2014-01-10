@@ -1,0 +1,21 @@
+%h1 Listing tsgs
+
+%table
+  %tr
+    %th Name
+    %th Department
+    %th
+    %th
+    %th
+
+  - @tsgs.each do |tsg|
+    %tr
+      %td= tsg.name
+      %td= tsg.department
+      %td= link_to 'Show', tsg
+      %td= link_to 'Edit', edit_tsg_path(tsg)
+      %td= link_to 'Destroy', tsg, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Tsg', new_tsg_path

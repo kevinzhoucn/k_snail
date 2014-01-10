@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @tsg.name
+%p
+  %b Department:
+  = @tsg.department
+
+= link_to 'Edit', edit_tsg_path(@tsg)
+\|
+= link_to 'Back', tsgs_path

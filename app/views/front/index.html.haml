@@ -1,0 +1,18 @@
+.container
+	.message	
+		%ul#chat
+			- @chat_messages.each do |chat_message|
+				%li.item#report
+					= chat_message.created_at.strftime('%-d/%-m/%Y %k:%M:%S')
+					= ':'
+					= chat_message.title
+	%hr
+
+	.opt
+		.submitbox	
+			%input{type: 'text', name: 'message'}
+			%button Post
+	%hr
+
+	.footer
+		%ul
