@@ -24,6 +24,9 @@
 
 	.opt
 		.submitbox	
+			%select
+				- @tsgs.each do |tsg|
+					%option{value: '#{tsg.name}'} #{tsg.name}
 			%input{type: 'text', name: 'message'}
 			%button Post
 	%hr
