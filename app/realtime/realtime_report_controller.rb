@@ -11,14 +11,15 @@ class RealtimeReportController < FayeRails::Controller
 				end
 
       tsgname = message['tsgname']
-      Rails.logger.debug "Received message #{tsgname}"
+#      Rails.logger.debug "Received message #{tsgname}"
 
-#      tsg = Tsg.find_by_name(tsgname)
+      tsg = Tsg.find_by_name(tsgname)
 #      tsg = Tsg.first
-      message_record = MessageRecord.new(title: message['message'])
-#      message = Tsg.first.messag_records.new(title: message['message'])
-      message = Tsg.first.messag_records.build(message_record)
-      message.save
+#      one_record = MessageRecord.new(title: message['message'])
+#      one_record = MessageRecord.new(title: message['message'])
+      one_record = tsg.message_records.new(title: message['message'])
+#      message = Tsg.first.message_records.build(one_record)
+      one_record.save
 
   		# message_record = MessageRecord.new(title: message['message'])
   		# message_record.save

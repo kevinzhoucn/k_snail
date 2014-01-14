@@ -5,11 +5,10 @@
 
 client = new Faye.Client('/faye')
 
-client.subscribe '/report', (payload)->  
+client.subscribe '/report', (payload) ->  
   dateString = moment(payload.created_at).format('D/M/YYYY H:mm:ss')
   messageString = payload.message
-  tsg = payload.tsgname
-  addElementMessage(dateString, messageString, tsg)  
+  addElementMessage(dateString, messageString, "User1")  
 
   #time = moment(payload.created_at).format('D/M/YYYY H:mm:ss')
   # You probably want to think seriously about XSS here:
@@ -29,10 +28,9 @@ $(document).ready ->
     button.attr('disabled', 'disabled')
     button.text('Posting...')
     publication = client.publish '/report',
-    	message: input.attr('value')
-#      tsgname: tsg.attr('value')
-#      tsgname: 'Albert'
-    	created_at: new Date()
+      tsgname: "User1"
+      message: input.attr('value')
+      created_at: new Date()
     publication.callback ->
     	input.attr('value', '')
     	button.removeAttr('disabled')

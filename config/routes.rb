@@ -1,7 +1,6 @@
 RailsApp::Application.routes.draw do
   resources :tsgs
-
-
+  
   faye_server '/faye', timeout: 25 do 
     map '/report' => RealtimeReportController
     map default: :block

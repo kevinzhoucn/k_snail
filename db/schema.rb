@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140110032952) do
+ActiveRecord::Schema.define(:version => 20140110075708) do
 
   create_table "message_records", :force => true do |t|
     t.string   "title"
